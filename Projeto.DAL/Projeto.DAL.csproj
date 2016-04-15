@@ -52,6 +52,7 @@
     <Compile Include="DataSource\Conexao.cs" />
     <Compile Include="Generics\GenericDal.cs" />
     <Compile Include="Generics\IGenericDal.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\JogadorDal.cs" />
     <Compile Include="Persistence\TimeDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
