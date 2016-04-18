@@ -23,7 +23,7 @@ namespace Projeto.Web.Services
                 TimeDal d = new TimeDal();
                 d.Insert(t);
 
-                return "Fornecedor" + t.Nome + ", cadastrado.";
+                return "Time cadastrado.";
             }
             catch (Exception e)
             {
