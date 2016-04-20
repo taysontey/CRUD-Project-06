@@ -33,12 +33,49 @@ namespace Projeto.Web.Services
 
         public TimeModelConsulta Editar(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TimeDal d = new TimeDal();
+                Time t = d.FindById(id);
+
+                if (t != null)
+                {
+                    var model = new TimeModelConsulta();
+                    model.IdTime = t.IdTime;
+                    model.Nome = t.Nome;
+                    model.DataFundacao = t.DataFundacao.ToString("dd/MM/yyyy");
+
+                    return model;
+                }
+                else
+                {
+                    throw new Exception("Time não encontrado.");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro: " + e.Message);
+            }
         }
 
         public string Atualizar(TimeModelEdicao model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Time t = new Time();
+                t.IdTime = model.IdTime;
+                t.Nome = model.Nome;
+                t.DataFundacao = model.DataFundacao;
+
+                TimeDal d = new TimeDal();
+                d.Update(t);
+
+                return "Time atualizado";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         public string Excluir(int id)
@@ -48,7 +85,7 @@ namespace Projeto.Web.Services
                 TimeDal d = new TimeDal();
                 Time t = d.FindById(id);
 
-                if(t != null)
+                if (t != null)
                 {
                     d.Delete(t);
                     return "Time excluído.";
@@ -71,7 +108,7 @@ namespace Projeto.Web.Services
                 List<TimeModelConsulta> lista = new List<TimeModelConsulta>();
                 TimeDal d = new TimeDal();
 
-                foreach(Time t in d.FindAll())
+                foreach (Time t in d.FindAll())
                 {
                     TimeModelConsulta model = new TimeModelConsulta();
                     model.IdTime = t.IdTime;
