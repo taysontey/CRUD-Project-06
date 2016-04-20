@@ -43,7 +43,25 @@ namespace Projeto.Web.Services
 
         public string Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TimeDal d = new TimeDal();
+                Time t = d.FindById(id);
+
+                if(t != null)
+                {
+                    d.Delete(t);
+                    return "Time excluído.";
+                }
+                else
+                {
+                    return "Time não encontrado.";
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         public List<TimeModelConsulta> Consultar()
