@@ -41,4 +41,14 @@ namespace Projeto.Web.Models
         [DataMember]
         public DateTime DataFundacao { get; set; }
     }
+
+    [DataContract]
+    public class TimeModelDropDown
+    {
+        [DataMember]
+        public int IdTime { get; set; }
+
+        [DataMember]
+        public string Nome { get; set; }
+    }
 }

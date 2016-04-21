@@ -9,21 +9,24 @@ using Projeto.Web.Models;
 namespace Projeto.Web.Services
 {
     [ServiceContract]
-    public interface ITimeService
+    public interface IJogadorService
     {
         [OperationContract]
-        string Cadastrar(TimeModelCadastro model);
+        List<TimeModelDropDown> CarregarTimes();
 
         [OperationContract]
-        TimeModelConsulta Editar(int id);
+        string Cadastrar(JogadorModelCadastro model);
 
         [OperationContract]
-        string Atualizar(TimeModelEdicao model);
+        JogadorModelConsulta Editar(int id);
+
+        [OperationContract]
+        string Atualizar(JogadorModelEdicao model);
 
         [OperationContract]
         string Excluir(int id);
 
         [OperationContract]
-        List<TimeModelConsulta> Consultar();
+        List<JogadorModelConsulta> Consultar();
     }
 }
